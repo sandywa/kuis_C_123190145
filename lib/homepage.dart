@@ -12,6 +12,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool _hasBeenPressed = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +39,18 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    // IconButton(onPressed: , icon: Icon(Icons.favorite)).
+                    IconButton(
+                      icon: const Icon(Icons.favorite),
+                      color: _hasBeenPressed ? Colors.red : Colors.grey,
+                      onPressed: () => {
+                        setState(() {
+                          _hasBeenPressed = !_hasBeenPressed;
+                        })
+                      },
+                    ),
+                    Text("${widget.movieDetail.popularity}"),
                     Text(
                         "Release Date   : ${widget.movieDetail.release_date}\n"
                             "Language       : ${widget.movieDetail.original_language}\n"
@@ -53,6 +65,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text("Original Title : ",style:  TextStyle(fontWeight: FontWeight.bold),),
                     Text("${widget.movieDetail.release_date}"),
