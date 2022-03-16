@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
             children: [
               Container(
+                padding: EdgeInsets.all(15),
                 child: Center(
                   child: Column(
                     children: [
@@ -38,6 +39,7 @@ class _HomePageState extends State<HomePage> {
               ),
               ),
               Container(
+                padding: EdgeInsets.all(20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [

@@ -17,6 +17,7 @@ class MainScreen extends StatelessWidget {
         gridDelegate:
         SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemBuilder: (context, index){
+
             final DataMovie movie = getDataMovie[index];
             return InkWell(
               onTap: () {
@@ -26,13 +27,17 @@ class MainScreen extends StatelessWidget {
               },
 
               child: Card(
-                child: Column(
-                  children: [
-                    Image.network(movie.poster_path,width: 64,),
-                    Text(movie.original_title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                    Text(movie.release_date),
-                    Text(movie.popularity.toString()),
-                  ],
+                child: Container(
+                  padding: EdgeInsets.all(15),
+                  child: Column(
+
+                    children: [
+                      Image.network(movie.poster_path,width: 90,),
+                      Text(movie.original_title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                      Text(movie.release_date),
+                      Text(movie.popularity.toString()),
+                    ],
+                  ),
                 ),
               ),
             );
