@@ -13,7 +13,9 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Data"),
       ),
-      body: ListView.builder(
+      body: GridView.builder(
+        gridDelegate:
+        SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemBuilder: (context, index){
             final DataMovie movie = getDataMovie[index];
             return InkWell(
@@ -24,10 +26,10 @@ class MainScreen extends StatelessWidget {
               },
 
               child: Card(
-                child: Row(
+                child: Column(
                   children: [
                     Image.network(movie.poster_path,width: 64,),
-                    Text(movie.original_title),
+                    Text(movie.original_title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                     Text(movie.release_date),
                     Text(movie.popularity.toString()),
                   ],
